@@ -4,10 +4,7 @@ package com.rezacomplete.controller;
 import com.rezacomplete.model.BookInfo;
 import com.rezacomplete.service.BooksInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BooksInfoResource {
@@ -20,5 +17,11 @@ public class BooksInfoResource {
 
         //todo some input validations here ...
         return booksInfoService.retrieveBookInfo(bookId);
+    }
+
+    @PostMapping(path="add")
+    public @ResponseBody String add(@RequestParam String id, @RequestParam String name) {
+        booksInfoService.addBookInfo(id, name);
+        return "Saved";
     }
 }

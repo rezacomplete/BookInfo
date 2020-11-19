@@ -1,2 +1,15 @@
 server:
  port: 8081
+
+spring:
+ jpa:
+  properties:
+   hibernate:
+    dialect: org.hibernate.dialect.MySQL55Dialect
+  database: mysql
+  hibernate:
+   ddl-auto: update
+ datasource:
+  url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/bookstore
+  username: root
+  password: 123456
